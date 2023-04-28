@@ -33,3 +33,5 @@ jobs:
         run: echo "${DOCKER_PASSWORD}" | docker login --username ghciutac --password-stdin
       - name: Deploy Image to DockerHub
         run: docker push ghciutac/blackandyellow:${{ steps.get_version.outputs.version }}
+      - name: Copy to Site
+        run: cp -R /build /_site/
